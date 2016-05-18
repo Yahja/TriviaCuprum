@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Trivia - AFP Cuprum</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/estilo.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/jquery.countdown.timer.css" rel="stylesheet"  type="text/css" />
+  </head>
+  <script type="text/javascript" src="js/ajax.js"></script>
+<script>var tiempo_limite=40;var arreglo_preguntas={};var play=0;var arreglo_siguientes={};var conteo=tiempo_limite;</script>
+
+<script>
+	function shuffle() 
+	{
+		return 0.5 - Math.random();
+  }
+</script>
+  <body>
+  	<div class="container-fluid content-trivia" id="myElement" >
+      <div class="row">
+        	<!-- <div class="col-sm-offset-8 col-sm-4 logo-top">
+                <img src="images/logo-top.png" class="center-block img-responsive" >
+            </div>-->
+        	<div id="InicioTrivia">
+           
+            <div class="col-sm-12 logo-central">
+            	<img src="images/logo-reto.png" class="center-block">
+            </div>
+            
+            <div  class="col-sm-12 texto-index">
+            	<h1 class="text-center animated pulse infinite"><a id="BotonComienzaTrivia" href="#">COMIENZA LA TRIVIA</a></h1>
+            </div>
+           </div>
+        
+       <div id="Pregunta1" style="display:none">
+       	 
+           <div id="Tiempo1" class="col-sm-12" >
+            	<div id="counter" class="animated pulse infinite">
+                    <div id="counter_item1" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item2" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item3" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit_colon"></div>
+                    </div>
+                    <div id="counter_item4" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item5" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                </div>
+            </div>
+       	 
+       	 <div class="col-sm-offset-1 col-sm-10 box-preguntas">
+            	<h1 class="text-center"><span id="preg_num1"></span></h1>
+            	<h2 class="text-center">Indica cuál de las siguientes definiciones corresponde a Tasa de Reemplazo:</h2>
+                <form name="form" method="post">
+                	<div class="radio-opcion1-pregunta1">
+                      <label id="opcion1-pregunta1">
+                        <input type="radio" name="Respuesta1" id="idR11" value="0" checked>
+                        Es el % de empleabilidad de un adulto mayor
+                      </label>
+                    </div>
+                    <div class="radio-opcion2-pregunta1">
+                      <label id="opcion2-pregunta1">
+                        <input type="radio" name="Respuesta1" id="idR12" value="1">
+                        Es el monto de pensión que obtiene una persona en comparación a su sueldo
+                      </label>
+                    </div>
+                    <div class="radio-opcion3-pregunta1">
+                      <label id="opcion3-pregunta1">
+                        <input type="radio" name="Respuesta1" id="idR13" value="0">
+                        Es el monto de pensión en relación a la pensión promedio en Chile
+                      </label>
+                    </div>
+          </div>
+           
+            </form>
+           <div class="col-sm-12" >
+            	<div class="btn-respuesta text-center animated pulse infinite"><input type="submit" id="BotonRespuesta1" name="submit" value="ENVIAR RESPUESTA" /></div>
+            </div>
+            
+        </div>
+       
+       <!-- VER ERROR -->	
+       <div id="Pregunta2" style="display:none">
+       		<div id="Tiempo2" class="col-sm-12">
+            	<div id="counter" class="animated pulse infinite">
+                    <div id="counter_item1" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item2" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item3" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit_colon"></div>
+                    </div>
+                    <div id="counter_item4" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item5" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-offset-1 col-sm-10 box-preguntas">
+            	<h1 class="text-center"><span id="preg_num2"></span></h1>
+            	<h2 class="text-center">El perfil de riesgo que considera la Pensión Proyectada por defecto para proyectar es:</h2>
+                <form name="form" method="post">
+                	<div class="radio-opcion1-pregunta2">
+                      <label id="opcion1-pregunta2">
+                        <input type="radio" name="Respuesta2" id="idR21" value="1" checked>
+                        Perfil Moderado
+                      </label>
+                    </div>
+                    <div class="radio-opcion2-pregunta2">
+                      <label id="opcion2-pregunta2">
+                        <input type="radio" name="Respuesta2" id="idR22" value="0">
+                        Perfil Personalizado
+                      </label>
+                    </div>
+                    <div class="radio-opcion3-pregunta2">
+                      <label id="opcion3-pregunta2">
+                        <input type="radio" name="Respuesta2" id="idR23" value="0">
+                         Perfil Riesgoso
+                      </label>
+                    </div>
+            </div>
+            
+            </form>
+            <div class="col-sm-12" >
+            	<div class="btn-respuesta text-center animated pulse infinite"><input id="BotonRespuesta2" type="submit" name="submit" value="ENVIAR RESPUESTA" /></div>
+            </div>
+            
+        </div>
+       
+       <div id="Pregunta3" style="display:none">
+       <div id="Tiempo3" class="col-sm-12">
+            	<div id="counter" class="animated pulse infinite">
+                    <div id="counter_item1" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item2" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item3" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit_colon"></div>
+                    </div>
+                    <div id="counter_item4" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item5" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-offset-1 col-sm-10 box-preguntas">
+            <h1 class="text-center"><span id="preg_num3"></span></h1>
+            <h2 class="text-center">La Pensión Proyectada no considera para proyectar:</h2>
+                <form name="form" method="post">
+                	<div class="radio-opcion1-pregunta3">
+                      <label id="opcion1-pregunta3">
+                        <input type="radio" name="Respuesta3" id="idR31" value="0" checked>
+                        Plan de ahorro en depósitos convenidos
+                      </label>
+                    </div>
+                    <div class="radio-opcion2-pregunta3">
+                      <label id="opcion2-pregunta3">
+                        <input type="radio" name="Respuesta3" id="idR32" value="0">
+                        Cuenta 2
+                      </label>
+                    </div>
+                    <div class="radio-opcion3-pregunta3">
+                      <label id="opcion3-pregunta3">
+                        <input type="radio" name="Respuesta3" id="idR33" value="1">
+                        Todas de las anteriores
+                      </label>
+                    </div>
+            </div>
+            
+            </form>
+            <div class="col-sm-12" >
+            	<div class="btn-respuesta text-center animated pulse infinite"><input id="BotonRespuesta3" type="submit" name="submit" value="ENVIAR RESPUESTA" /></div>
+            </div>
+            
+       
+        </div>
+        
+       <div id="Pregunta4" style="display:none">
+         <div id="Tiempo4" class="col-sm-12">
+            	<div id="counter" class="animated pulse infinite">
+                    <div id="counter_item1" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item2" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item3" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit_colon"></div>
+                    </div>
+                    <div id="counter_item4" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item5" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-offset-1 col-sm-10 box-preguntas">
+            <h1 class="text-center"><span id="preg_num4"></span></h1>
+            <h2 class="text-center">En los siguientes casos por tipo de cliente, al ingresar al sitio privado no se despliega la tasa de reemplazo en forma automática</h2>
+                <form name="form" method="post">
+                	<div class="radio-opcion1-pregunta4">
+                      <label id="opcion1-pregunta4">
+                        <input type="radio" name="Respuesta4" id="idR41" value="0" checked>
+                        Cliente Tope
+                      </label>
+                    </div>
+                    <div class="radio-opcion2-pregunta4">
+                      <label id="opcion2-pregunta4">
+                        <input type="radio" name="Respuesta4" id="idR42" value="1">
+                        Cliente solo producto voluntario Voluntario
+                      </label>
+                    </div>
+                    <div class="radio-opcion3-pregunta4">
+                      <label id="opcion3-pregunta4">
+                        <input type="radio" name="Respuesta4" id="idR43" value="0">
+                        Ambos
+                      </label>
+                    </div>
+            </div>
+            
+            </form>
+            <div class="col-sm-12" >
+            	<div class="btn-respuesta text-center animated pulse infinite"><input type="submit" id="BotonRespuesta4" name="submit" value="ENVIAR RESPUESTA" /></div>
+            </div>
+            
+        
+           </div>
+       
+       <!-- VER ERROR PASA IGUAL -->    
+       <div id="Pregunta5" style="display:none">
+               <div id="Tiempo5" class="col-sm-12">
+         	      <div id="counter" class="animated pulse infinite">
+                    <div id="counter_item1" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item2" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item3" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit_colon"></div>
+                    </div>
+                    <div id="counter_item4" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                    <div id="counter_item5" class="counter_item">
+                        <div class="front"></div>
+                        <div class="digit digit0"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-offset-1 col-sm-10 box-preguntas">
+            	<h1 class="text-center"><span id="preg_num5"></span></h1>
+            	<h2 class="text-center">Para que el Cliente Tope pueda activar la herramienta y ver su Tasa de Reemplazo debe:</h2>
+                <form name="form" method="post">
+                	<div class="radio-opcion1-pregunta5">
+                      <label id="opcion1-pregunta5">
+                        <input type="radio" name="Respuesta5" id="idR51" value="1" checked>
+                        Ingresar su renta bruta (igual o mayor al tope)
+                      </label>
+                    </div>
+                    <div class="radio-opcion2-pregunta5">
+                      <label id="opcion2-pregunta5">
+                        <input type="radio" name="Respuesta5" id="idR52" value="0">
+                        Ingresar su renta bruta (mayor al tope)
+                      </label>
+                    </div>
+                    <div class="radio-opcion3-pregunta5">
+                      <label id="opcion3-pregunta5">
+                        <input type="radio" name="Respuesta5" id="idR53" value="0">
+                        Ingresar su renta bruta (menor al tope) 
+                      </label>
+                    </div>
+            </div>
+            
+            </form>
+            <div class="col-sm-12" >
+            	<div class="btn-respuesta text-center animated pulse infinite"><input type="submit" id="BotonRespuesta5" name="submit" value="ENVIAR RESPUESTA" /></div>
+            </div>
+            
+         	 </div>
+          
+          
+         <div id="Error" style="display:none">
+            <div class="col-sm-offset-1 col-sm-10 box-error">
+            	<h1 class="text-center">¡OOPS!</h1>
+            	<h2 class="text-center">RESPUESTA INCORRECTA</h2>
+            </div>
+           
+            
+            <div class="col-sm-offset-2 col-sm-8 btn-volver animated pulse infinite" >
+            	<div class="text-center" ><a onclick="retorno();" href="#">SIGUE CONCURSANDO</a></div>
+            </div>
+          </div>
+          
+          <div id="Exito" style="display:none">
+          	<div class="col-sm-offset-2 col-sm-8 box-error">
+            	<h1 class="text-center">FELICITACIONES</h1>
+                <h2 class="text-center">ESTÁS PARTICIPANDO POR UN PREMIO SORPRESA</h2>
+            </div>
+           
+            
+            <div class="col-sm-offset-2 col-sm-8 btn-start" >
+            	<div class="text-center" ><a onclick="retorno();" href="#"></a></div>
+            </div>
+          </div>	
+       
+       
+       <div id="TiempoAgotado" style="display:none">
+          	<div class="col-sm-offset-2 col-sm-8 box-error">
+            	<h1 class="text-center">TIEMPO AGOTADO</h1>
+                
+            </div>
+            
+            <div class="col-sm-offset-2 col-sm-8 btn-volver animated pulse infinite" >
+            	<div class="text-center" ><a onclick="retorno();" href="#">VOLVER A PARTICIPAR</a></div>
+            </div>
+          </div>	
+       </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+     <!-- SCRIPT TEMPORIZADOR -->
+    <script src="js/jquery.timeout.interval.idle.js" type="text/javascript"></script> 
+	<script src="js/jquery.countdown.counter.js" type="text/javascript"></script> 
+    <!-- QUITA LA BARRA DE ESTATUS DE GOOGLE CHROME -->
+    <script>
+		$("body").on('mouseover', 'a', function (e) {
+			var $link = $(this),
+				href = $link.attr('href') || $link.data("href");
+		
+			$link.off('click.chrome');
+			$link.on('click.chrome', function () {
+				window.location.href = href;
+			})
+			.attr('data-href', href) //keeps track of the href value
+			.css({ cursor: 'pointer' })
+			.removeAttr('href'); // <- this is what stops Chrome to display status bar
+		});
+	</script>
+    <!-- SCRIPT PARA DESACTIVAR EL MOVIMIENTO DE SCROLL O "ERRÁTICO" DE LA PANTALLA TOUCH -->
+		<script>
+            // left: 37, up: 38, right: 39, down: 40,
+            // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+            var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+            
+            function preventDefault(e) {
+              e = e || window.event;
+              if (e.preventDefault)
+                  e.preventDefault();
+              e.returnValue = false;  
+            }
+            
+            function preventDefaultForScrollKeys(e) {
+                if (keys[e.keyCode]) {
+                    preventDefault(e);
+                    return false;
+                }
+            }
+            
+            function disableScroll() {
+              if (window.addEventListener) // older FF
+                  window.addEventListener('DOMMouseScroll', preventDefault, false);
+              window.onwheel = preventDefault; // modern standard
+              window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+              window.ontouchmove  = preventDefault; // mobile
+              document.onkeydown  = preventDefaultForScrollKeys;
+            }
+            
+            function enableScroll() {
+                if (window.removeEventListener)
+                    window.removeEventListener('DOMMouseScroll', preventDefault, false);
+                window.onmousewheel = document.onmousewheel = null; 
+                window.onwheel = null; 
+                window.ontouchmove = null;  
+                document.onkeydown = null;  
+            }
+        </script>
+        <!-- SCRIPT PARA DESACTIVAR EL CLICK DERECHO -->
+        <script>
+        	(function () {
+			  var blockContextMenu, window;
+			
+			  blockContextMenu = function (evt) {
+				evt.preventDefault();
+			  };
+			
+			  window = document.querySelector('#myElement');
+			  window.addEventListener('contextmenu', blockContextMenu);
+			})();
+        </script>
+        <script>
+       $("#BotonComienzaTrivia").click(function() 
+       {
+       		
+       		$("#idR11").prop("checked",true);$("#idR21").prop("checked",true);$("#idR31").prop("checked",true);
+       		$("#idR41").prop("checked",true);$("#idR51").prop("checked",true);
+       		
+       		play=1;
+       		$("#InicioTrivia").hide();
+					arreglo_preguntas={};arreglo_siguientes={};
+					for (var j=0;j<=6;j++)  arreglo_siguientes[j]="";
+					
+					//$("#TiempoAgotado").show();
+					arreglo_preguntas[0]=Math.floor(Math.random()*5)+1;
+					//arreglo_preguntas[0]=1;
+					var numero_aleatorio=Math.floor(Math.random()*5)+1;
+       		while (numero_aleatorio==arreglo_preguntas[0]) numero_aleatorio=Math.floor(Math.random()*5)+1;
+       		
+       		arreglo_preguntas[1]=numero_aleatorio;
+       		numero_aleatorio=Math.floor(Math.random()*5)+1;
+       		while ((numero_aleatorio==arreglo_preguntas[0]) || (numero_aleatorio==arreglo_preguntas[1])) numero_aleatorio=Math.floor(Math.random()*5)+1;
+			
+			arreglo_preguntas[2]=numero_aleatorio;
+       		numero_aleatorio=Math.floor(Math.random()*5)+1;
+       		while ((numero_aleatorio==arreglo_preguntas[0]) ||
+			 (numero_aleatorio==arreglo_preguntas[1]) || 
+			 (numero_aleatorio==arreglo_preguntas[2])) numero_aleatorio=Math.floor(Math.random()*5)+1;
+			
+			arreglo_preguntas[3]=numero_aleatorio;
+       		numero_aleatorio=Math.floor(Math.random()*5)+1;
+       		while ((numero_aleatorio==arreglo_preguntas[0]) || 
+			(numero_aleatorio==arreglo_preguntas[1]) || 
+			(numero_aleatorio==arreglo_preguntas[2]) || 
+			(numero_aleatorio==arreglo_preguntas[3])) numero_aleatorio=Math.floor(Math.random()*5)+1;
+       		
+			
+			arreglo_preguntas[4]=numero_aleatorio;
+       		
+			for (var j=0;j<4;j++)  arreglo_siguientes[arreglo_preguntas[j]]="#Pregunta"+arreglo_preguntas[j+1];
+       		arreglo_siguientes[arreglo_preguntas[4]]="#Exito";
+       		
+       		CounterInit(tiempo_limite);conteo=tiempo_limite;timer_();
+       		
+       		
+       		$("#preg_num"+arreglo_preguntas[0]).text("1");
+       		$("#preg_num"+arreglo_preguntas[1]).text("2");
+       		$("#preg_num"+arreglo_preguntas[2]).text("3");
+       		$("#preg_num"+arreglo_preguntas[3]).text("4");
+			$("#preg_num"+arreglo_preguntas[4]).text("5");
+			
+       		$("#Pregunta" + arreglo_preguntas[0]).show();
+       		//$("#Pregunta1").show();
+       		
+       
+    		
+       })
+      
+       		$("#BotonRespuesta1").click(function()
+       		{	
+       				if ($("input:radio[name=Respuesta1]:checked").val()=='1')
+       				{
+       						$("#Pregunta1").hide();
+       						CounterInit(tiempo_limite);
+       						$(arreglo_siguientes[1]).show();
+       						conteo=tiempo_limite;
+       						if (arreglo_siguientes[1]=="#Exito")
+									{
+										$.getJSON("sumar_premios.php", { }, function(respuestaServer)
+	         					{ })
+				
+									}
+       						
+       						      				           				
+       				} else 
+       				{
+       					$("#Pregunta1").hide();
+       					$("#Error").show();
+       				}	
+       			})
+       
+       	$("#BotonRespuesta2").click(function()
+       		{			
+       				if ($("input:radio[name=Respuesta2]:checked").val()=='1')
+       				{
+       						$("#Pregunta2").hide();
+       						CounterInit(tiempo_limite);
+       						$(arreglo_siguientes[2]).show();
+       						conteo=tiempo_limite; 
+       							if (arreglo_siguientes[2]=="#Exito")
+									{
+										$.getJSON("sumar_premios.php", { }, function(respuestaServer)
+	         					{ })
+				
+									}      				           				
+       				} else 
+       				{
+       					$("#Pregunta2").hide();
+       					$("#Error").show();
+       				}	
+       			})
+       			
+       		$("#BotonRespuesta3").click(function()
+       		{      				
+       				if ($("input:radio[name=Respuesta3]:checked").val()=='1')
+       				{
+       						$("#Pregunta3").hide();
+       						CounterInit(tiempo_limite);
+       						$(arreglo_siguientes[3]).show();
+       						conteo=tiempo_limite;      	
+       							if (arreglo_siguientes[3]=="#Exito")
+									{
+										$.getJSON("sumar_premios.php", { }, function(respuestaServer)
+	         					{ })
+				
+									}			           				
+       				} else 
+       				{
+       					$("#Pregunta3").hide();
+       					$("#Error").show();
+       				}	
+       			})
+       			
+       		$("#BotonRespuesta4").click(function()
+       		{      				
+       				if ($("input:radio[name=Respuesta4]:checked").val()=='1')
+       				{
+       						$("#Pregunta4").hide();
+       						CounterInit(tiempo_limite);
+       						$(arreglo_siguientes[4]).show();
+       						conteo=tiempo_limite;      	
+       							if (arreglo_siguientes[4]=="#Exito")
+									{
+										$.getJSON("sumar_premios.php", { }, function(respuestaServer)
+	         					{ })
+				
+									}			           				
+       				} else 
+       				{
+       					$("#Pregunta4").hide();
+       					$("#Error").show();
+       				}	
+       			})
+       			
+       		$("#BotonRespuesta5").click(function()
+       		{	
+       				if ($("input:radio[name=Respuesta5]:checked").val()=='1')
+       				{
+       						$("#Pregunta5").hide();
+       						CounterInit(tiempo_limite);
+       						$(arreglo_siguientes[5]).show();
+       						conteo=tiempo_limite;    
+       							if (arreglo_siguientes[5]=="#Exito")
+									{
+										$.getJSON("sumar_premios.php", { }, function(respuestaServer)
+	         					{ })
+				
+									}   				           				
+       				} else 
+       				{
+       					$("#Pregunta5").hide();
+       					$("#Error").show();
+       				}	
+       			})
+       			
+       			
+       		
+       			
+        function timer_() 
+        {   
+				   if (play==1)
+				   {
+				   
+				   setTimeout(function() {
+						conteo=conteo-1;
+						if (conteo==-1) 
+						  {
+						     	for (var ii=1;ii<=8;ii++)
+						     	{
+						     		$("#Pregunta" + ii).hide();	
+						     	}
+						     	$("#TiempoAgotado").show();	
+						     	
+							} 				
+						if (conteo >-1) timer_();
+					}, 1000);
+					}
+					if(play==0) conteo=tiempo_limite;
+				};
+				
+				function retorno()
+				{
+						play=0;conteo=tiempo_limite;
+						$("#TiempoAgotado").hide();
+						$("#Error").hide();	
+						$("#Exito").hide();
+						$("#InicioTrivia").show();				
+				}				
+				
+		
+        	
+        </script>	
+        <script>
+			$('#opcion1-pregunta1').click(function(){
+				$('.radio-opcion1-pregunta1').addClass('radio-click');
+				$('.radio-opcion2-pregunta1').removeClass('radio-click');
+				$('.radio-opcion3-pregunta1').removeClass('radio-clicl');
+			});
+			$('#opcion2-pregunta1').click(function(){
+				$('.radio-opcion2-pregunta1').addClass('radio-click');
+				$('.radio-opcion1-pregunta1').removeClass('radio-click');
+				$('.radio-opcion3-pregunta1').removeClass('radio-click');
+			});
+			$('#opcion3-pregunta1').click(function(){
+				$('.radio-opcion3-pregunta1').addClass('radio-click');
+				$('.radio-opcion2-pregunta1').removeClass('radio-click');
+				$('.radio-opcion1-pregunta1').removeClass('radio-click');
+			});
+			
+			$('#opcion1-pregunta2').click(function(){
+				$('.radio-opcion1-pregunta2').addClass('radio-click');
+				$('.radio-opcion2-pregunta2').removeClass('radio-click');
+				$('.radio-opcion3-pregunta2').removeClass('radio-click');
+			});
+			$('#opcion2-pregunta2').click(function(){
+				$('.radio-opcion2-pregunta2').addClass('radio-click');
+				$('.radio-opcion3-pregunta2').removeClass('radio-click');
+				$('.radio-opcion1-pregunta2').removeClass('radio-click');
+			});
+			$('#opcion3-pregunta2').click(function(){
+				$('.radio-opcion3-pregunta2').addClass('radio-click');
+				$('.radio-opcion2-pregunta2').removeClass('radio-click');
+				$('.radio-opcion1-pregunta2').removeClass('radio-click');
+			});
+			
+			$('#opcion1-pregunta3').click(function(){
+				$('.radio-opcion1-pregunta3').addClass('radio-click');
+				$('.radio-opcion2-pregunta3').removeClass('radio-click');
+				$('.radio-opcion2-pregunta3').removeClass('radio-click');
+			});
+			$('#opcion2-pregunta3').click(function(){
+				$('.radio-opcion2-pregunta3').addClass('radio-click');
+				$('.radio-opcion1-pregunta3').removeClass('radio-click');
+				$('.radio-opcion3-pregunta3').removeClass('radio-click');
+			});
+			$('#opcion3-pregunta3').click(function(){
+				$('.radio-opcion3-pregunta3').addClass('radio-click');
+				$('.radio-opcion2-pregunta3').removeClass('radio-click');
+				$('.radio-opcion1-pregunta3').removeClass('radio-click');
+			});
+			
+			$('#opcion1-pregunta4').click(function(){
+				$('.radio-opcion1-pregunta4').addClass('radio-click');
+				$('.radio-opcion2-pregunta4').removeClass('radio-click');
+				$('.radio-opcion3-pregunta4').removeClass('radio-click');
+			});
+			$('#opcion2-pregunta4').click(function(){
+				$('.radio-opcion2-pregunta4').addClass('radio-click');
+				$('.radio-opcion1-pregunta4').removeClass('radio-click');
+				$('.radio-opcion3-pregunta4').removeClass('radio-click');
+			});
+			$('#opcion3-pregunta4').click(function(){
+				$('.radio-opcion3-pregunta4').addClass('radio-click');
+				$('.radio-opcion2-pregunta4').removeClass('radio-click');
+				$('.radio-opcion1-pregunta4').removeClass('radio-click');
+			});				
+			
+			$('#opcion1-pregunta5').click(function(){
+				$('.radio-opcion1-pregunta5').addClass('radio-click');
+				$('.radio-opcion2-pregunta5').removeClass('radio-click');
+				$('.radio-opcion3-pregunta5').removeClass('radio-click');
+			});
+			$('#opcion2-pregunta5').click(function(){
+				$('.radio-opcion2-pregunta5').addClass('radio-click');
+				$('.radio-opcion1-pregunta5').removeClass('radio-click');
+				$('.radio-opcion3-pregunta5').removeClass('radio-click');
+			});
+			$('#opcion3-pregunta5').click(function(){
+				$('.radio-opcion3-pregunta5').addClass('radio-click');
+				$('.radio-opcion2-pregunta5').removeClass('radio-click');
+				$('.radio-opcion1-pregunta5').removeClass('radio-click');
+			});
+			$('.btn-volver').click(function(){
+				$('.radio-opcion1-pregunta1').removeClass('radio-click');
+				$('.radio-opcion2-pregunta1').removeClass('radio-click');
+				$('.radio-opcion3-pregunta1').removeClass('radio-click');
+				$('.radio-opcion1-pregunta2').removeClass('radio-click');
+				$('.radio-opcion2-pregunta2').removeClass('radio-click');
+				$('.radio-opcion3-pregunta2').removeClass('radio-click');
+				$('.radio-opcion1-pregunta3').removeClass('radio-click');
+				$('.radio-opcion2-pregunta3').removeClass('radio-click');
+				$('.radio-opcion3-pregunta3').removeClass('radio-click');
+				$('.radio-opcion1-pregunta4').removeClass('radio-click');
+				$('.radio-opcion2-pregunta4').removeClass('radio-click');
+				$('.radio-opcion3-pregunta4').removeClass('radio-click');
+				$('.radio-opcion1-pregunta5').removeClass('radio-click');
+				$('.radio-opcion2-pregunta5').removeClass('radio-click');
+				$('.radio-opcion3-pregunta5').removeClass('radio-click');
+			});
+        </script>
+        
+  </body>
+</html>

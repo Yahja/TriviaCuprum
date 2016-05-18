@@ -1,0 +1,145 @@
+@charset "UTF-8";
+/* CSS Document */
+body{
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	-webkit-transform:translate3d(0,0,0);
+  	transform:translate3d(0,0,0);
+	/*background-image: url("../images/background.jpg");
+	background-position: top center;
+	background-repeat: no-repeat;*/
+	background: #000;
+}
+
+h2{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.content-preguntas, .content-trivia{
+	background-repeat: no-repeat;
+	background-size: auto;
+	max-width: 600px;
+	min-height: 980px;
+	background: #000;
+	overflow: hidden;
+}
+.content-trivia{
+	background-image: url("../images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: 5px solid #0A2C6D;
+}
+.content-preguntas{
+	background-image: url("../images/background-preguntas.jpg");
+}
+.logo-top{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+.logo-central{
+	margin-top: 60%;
+}
+.texto-index{
+/*	margin-bottom: 66%;*/
+	margin-top: 30px;
+}
+.texto-index h1 a, .btn-respuesta input[type="submit"], .btn-volver a{
+	color: #FFF;
+	font-weight: lighter;
+	font-size: 0.8em;
+	padding: 20px 40px;
+	background: rgba(251,146,18,1.0);
+	border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+}
+.btn-volver{
+	margin-top: 50px !important;
+}
+.btn-respuesta input[type="submit"]{
+	background: none;
+}
+.texto-index h1 a:hover, .btn-respuesta input[type="submit"]:hover, .btn-volver a:hover{
+	text-decoration: none;
+	background: rgba(000,000,000,0.5);
+	color: #FFF;
+}
+.btn-respuesta input[type="submit"]{
+	background: rgba(251,146,18,1.0);
+	border: none;
+	font-size: 24px;
+
+}
+.logo-preguntas{
+	margin-top: 50%;
+}
+.box-preguntas{
+	margin-top: 0px;
+	padding: 20px 30px;
+}
+.box-preguntas h2{
+	font-size: 24px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.box-preguntas label{
+	width: 100%;
+}
+.radio-opcion1-pregunta1, .radio-opcion2-pregunta1, .radio-opcion3-pregunta1, .radio-opcion1-pregunta2, .radio-opcion2-pregunta2, .radio-opcion3-pregunta2, .radio-opcion1-pregunta3, .radio-opcion2-pregunta3, .radio-opcion3-pregunta3, .radio-opcion1-pregunta4, .radio-opcion2-pregunta4, .radio-opcion3-pregunta4, .radio-opcion1-pregunta5, .radio-opcion2-pregunta5, .radio-opcion3-pregunta5{
+	background-color: rgba(255,255,255,0.5);
+	margin-bottom: 15px;
+}
+.radio-click{
+	background: rgba(251,146,18,1.0);
+}
+.box-preguntas input[type="radio"]{
+	visibility: hidden;
+	width:100%;
+	position:absolute;
+}
+
+.box-error{
+	border: 5px solid #092e6e;
+	margin-top: 270px;
+	padding: 100px 30px;
+	background: rgba(255,255,255,0.2);
+	overflow:hidden;
+}
+.box-error h1{
+	font-size: 4em;
+	font-weight: lighter;
+	color: #092e6e;
+}
+.box-error h2{
+	font-size: 2em;
+	font-weight: lighter;
+	color: #092e6e;
+}
+.box-preguntas h1 span{
+	background-color: #181146;
+	border-radius: 50%;
+	color: #fb9212;
+	padding: 10px 20px;
+}
+.box-preguntas form label{
+	font-size: 24px;
+	font-weight:lighter;
+	margin: 15px 0px 15px 15px;
+}
+.btn-start a{
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255,0.1);
+	position: fixed;
+	left:0px;
+	top: 0px;
+}
+.exito-tiempo-box{
+	height: 970px;
+	float: left;
+	overflow: hidden !important;
+}
